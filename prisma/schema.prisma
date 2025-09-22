@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider      = "prisma-client-js"
+  output        = "client"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+// soon
+// model ShopItem {
+//   name       String @id
+//   price      Int
+//   rewardType Int    @default(1)
+// }
+
+model TicketQuestion {
+  id        String @id @default(uuid())
+  themeId   String
+  question  String
+  style     Int
+  minLength Int?
+  maxLength Int?
+}
+
+model TicketTheme {
+  id                  String  @id @default(uuid())
+  selectionOptionName String?
+  selectionOptionIcon String?
+  channelName         String
+  guildId             String
+  ticketIntro         String  @db.VarChar(3000)
+}
+
+model User {
+  id          String  @id
+  balance     Int     @default(50)
+  developer   Boolean @default(false)
+  blacklisted Boolean @default(false)
+}
+
+model Warn {
+  id        Int      @id @default(autoincrement())
+  authorId  String
+  userId    String
+  reason    String
+  timestamp DateTime @default(now())
+}
+
+model Guild {
+  id               String  @id
+  blacklisted      Boolean @default(false)
+  ticketCategoryId String?
+  penaltyChannelId String?
+}
+
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}

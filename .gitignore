@@ -1,0 +1,8 @@
+node_modules
+.env
+config.json
+prisma/migrations
+prisma/dev.db
+prisma/dev.db-journal
+prisma/client
+build

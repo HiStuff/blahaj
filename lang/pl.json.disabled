@@ -1,0 +1,32 @@
+{
+    "discord.locale": "pl",
+    "example.test": "To jest test z dwoma argumentami. Wartość pierwszego argumentu wynosi {0} a wartość argumentu drugiego wynosi {1}",
+    
+    "command.simpleembed.localization.name": "prostyembed",
+    "command.simpleembed.localization.description": "Stwórz prosty embed.",
+    "command.simpleembed.title.localization.name": "tytul",
+    "command.simpleembed.title.localization.description": "Tytuł",
+    "command.simpleembed.description.localization.name": "opis",
+    "command.simpleembed.description.localization.description": "Opis",
+    "command.simpleembed.color.localization.name": "kolor",
+    "command.simpleembed.color.localization.description": "Kolor",
+
+    "command.ping.localization.name": "ping",
+    "command.ping.localization.description": "Pokazuje że bot działa!",
+
+    "response.ping.embed.title": "Opóźnienie",
+    "response.ping.embed.description": "🏓 Opóźnienie wynosi `~{0}ms`",
+    "response.ping.checking": "`🕑 Checking latency...`",
+
+    "command.warn.localization.name": "warn",
+    "command.warn.localization.description": "Nadaje... Ostrzeżenia!",
+    "command.warn.user.localization.name": "czlonek",
+    "command.warn.user.localization.description": "Członek serwera do ostrzeżenia.",
+    "command.warn.reason.localization.name": "powod",
+    "command.warn.reason.localization.description": "Powód ostrzeżenia",
+
+    "response.warn.embed.title": "Ostrzeżenie",
+    "response.warn.embed.description": "{0} został ostrzeżony przez {1} za {2}.",
+    "response.warn.warned": "`✅ Warned {0} for {1}. (Warn ID: {2})`"
+    
+}
