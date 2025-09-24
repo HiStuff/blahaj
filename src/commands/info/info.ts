@@ -5,6 +5,7 @@ import os from "node:os";
 import os_utils from "os-utils";
 import packagejson from "../../../package.json" with { type: "json" };
 import { CommandCategories } from "../../types.js";
+import { timeToString } from "../../utils/time.js";
 
 export default {
 	data: new SlashCommandBuilder()
@@ -28,7 +29,8 @@ export default {
 				{ name: "Właściciel bota", value: `@${ownerUsername}\n${config.ownerId}`, inline: true },
 				{ name: "Ważne linki", value: `
 [Dołącz na nasz serwer!](${config.invite_link})
-				`, inline: true }
+				`, inline: true },
+				{ name: "Uptime", value: timeToString(process.uptime()*1000) }
 			)
 			.setFooter({ text: "Psst... Obczaj komende /pomoc." });
 		await interaction.followUp({

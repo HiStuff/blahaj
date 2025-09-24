@@ -5,7 +5,8 @@ import { LanguageManager } from "./utils/languageManager.js";
 export interface IVersion {
     name: string,
     codename: string,
-    color: string
+    color: string,
+    developmental: boolean
 }
 
 export class FembotClient extends Client {

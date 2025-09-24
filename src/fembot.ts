@@ -12,8 +12,9 @@ import { Guild, PrismaClient, User } from "../prisma/client/default.js";
 import { createErrorEmbed, Error } from "./utils/error.js";
 import { handleAutocomplete, handleChatInputCommandInteraction, handleContextMenuCommandInteraction, loadButtons, loadCommands, loadContextMenuCommands, loadEvents } from "./handler.js";
 import { getTicketFromChannel, handleCustomMenuButtonClick, Ticket } from "./features/ticket/ticket.js";
-import { getVersion } from "./updater.js";
+
 import { LanguageManager } from "./utils/languageManager.js";
+import { getVersion } from "./updater.js";
 
 export const client = new FembotClient(getVersion(), new LanguageManager(), { intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions] });
 export const database = new PrismaClient();

@@ -3,6 +3,8 @@ import path from "node:path";
 import * as log from "./utils/logger.js";
 import { IVersion } from "./types.js";
 import unzipper from "unzipper";
+import buildinfo from "../buildinfo.json" with { type: "json" };
+import config from "../config.json" with { type: "json" };
 
 const __dirname = import.meta.dirname;
 
@@ -12,10 +14,9 @@ if (process.argv[2] == "--development") {
 }
 
 export function getVersion() {
-    const versionFileContent = fs.readFileSync(path.join(__dirname, "../versionfile"));
-    const versionRaw = versionFileContent.toString().split("|");
-    return { name: versionRaw[0], codename: versionRaw[1], color: versionRaw[2] } as IVersion;
+    return { name: config.bot_name, codename: buildinfo.version, color: config.main_color, developmental: !deployed } as IVersion;
 }
+
 export async function update(buffer?: Buffer, exit_on_update: boolean = true) {
     log.warn("Update issued.");
     if (!deployed) { log.warn(`You can't update the development version of the bot!`); return; };
