@@ -14,17 +14,17 @@ export default {
         .addUserOption(option =>
             option
                 .setName("user")
-                .setNameLocalizations(client.lang.getNameLocalizations("warn.user"))
+                .setNameLocalizations(client.lang.getNameLocalizations("warn_user"))
                 .setDescription("User to warn")
-                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("warn.user"))
+                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("warn_user"))
                 .setRequired(true)
         )
         .addStringOption(option =>
             option
                 .setName("reason")
-                .setNameLocalizations(client.lang.getNameLocalizations("warn.reason"))
+                .setNameLocalizations(client.lang.getNameLocalizations("warn_reason"))
                 .setDescription("Warn reason")
-                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("warn.reason"))
+                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("warn_reason"))
                 .setRequired(true)
         ),
     requiredPermission: PermissionFlagsBits.ModerateMembers,
@@ -41,8 +41,8 @@ export default {
         });
         if (guild.penaltyChannelId) {
             const embed = new EmbedBuilder()
-                .setTitle(client.lang.translate(interaction.locale, "response.warn.embed.title"))
-                .setDescription(client.lang.translate(interaction.locale, "response.warn.embed.description", interaction.options.getUser("user", true).toString(), interaction.user.toString(), interaction.options.getString("reason", true)))
+                .setTitle(client.lang.getResponseObject(interaction.guildLocale, "warn_warned_public").title)
+                .setDescription(client.lang.getResponseObject(interaction.guildLocale, "warn_warned_public", interaction.options.getUser("user", true).toString(), interaction.user.toString(), interaction.options.getString("reason", true)).description)
                 .setColor(0xFF0000)
                 .setTimestamp(new Date())
                 .setFooter({
@@ -52,7 +52,7 @@ export default {
             if (!channel?.isSendable()) return;
             channel.send({ embeds: [embed] });
         }
-        await interaction.followUp(client.lang.translate(interaction.locale, "response.warn.warned", interaction.options.getUser("user", true).id, interaction.options.getString("reason", true), warn.id.toString()))
+        await interaction.followUp(client.lang.getResponse(interaction.guildLocale, "warn_warned", interaction.options.getUser("user", true).id, interaction.options.getString("reason", true), warn.id.toString()))
         return true;
     }
 }

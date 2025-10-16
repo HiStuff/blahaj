@@ -32,15 +32,31 @@ export class LanguageManager {
             throw new Error("Language Folder doesn't exist.");
         }
     }
-    getResponse(lang: string, key: string, ...args: string[]) {
-        let formatted = (this.languages[lang] || this.languages["en-US"]).responses[key as keyof Language];
+    getResponse(lang: string | null, key: string, ...args: string[]) {
+        let formatted = (this.languages[lang || "en-US"] || this.languages["en-US"]).responses[key as keyof Language];
         for(let arg in args) {
             formatted = formatted.replace("{" + arg + "}", args[arg]);
         }
         return formatted;
     }
-    getResponseObject(lang: string, key: string, ...args: string[]) {
-        const object = (this.languages[lang] || this.languages["en-US"]).responses[key as keyof Language];
+    getResponseObject(lang: string | null, key: string, ...args: string[]) {
+        const object = (this.languages[lang || "en-US"] || this.languages["en-US"]).responses[key as keyof Language];
+        if (typeof object != "object") return object;
+        let formatted = JSON.stringify(object);
+        for(let arg in args) {
+            formatted = formatted.replace("{" + arg + "}", args[arg]);
+        }
+        return JSON.parse(formatted);
+    }
+    getOther(lang: string | null, key: string, ...args: string[]) {
+        let formatted = (this.languages[lang || "en-US"] || this.languages["en-US"]).other[key as keyof Language];
+        for(let arg in args) {
+            formatted = formatted.replace("{" + arg + "}", args[arg]);
+        }
+        return formatted;
+    }
+    getOtherObject(lang: string | null, key: string, ...args: string[]) {
+        const object = (this.languages[lang || "en-US"] || this.languages["en-US"]).other[key as keyof Language];
         if (typeof object != "object") return object;
         let formatted = JSON.stringify(object);
         for(let arg in args) {

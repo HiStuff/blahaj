@@ -15,20 +15,20 @@ export default {
         .addStringOption(option => option
             .setName("title")
             .setDescription("Title")
-            .setNameLocalizations(client.lang.getNameLocalizations("simpleembed.title"))
-            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("simpleembed.title"))
+            .setNameLocalizations(client.lang.getNameLocalizations("simpleembed_title"))
+            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("simpleembed_title"))
             .setRequired(true)
         ).addStringOption(option => option
             .setName("description")
             .setDescription("Description")
-            .setNameLocalizations(client.lang.getNameLocalizations("simpleembed.description"))
-            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("simpleembed.description"))
+            .setNameLocalizations(client.lang.getNameLocalizations("simpleembed_description"))
+            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("simpleembed_description"))
             .setRequired(true)
         ).addStringOption(option => option
             .setName("color")
             .setDescription("Color (HEX)")
-            .setNameLocalizations(client.lang.getNameLocalizations("simpleembed.color"))
-            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("simpleembed.color"))
+            .setNameLocalizations(client.lang.getNameLocalizations("simpleembed_color"))
+            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("simpleembed_color"))
         ),
 	category: CommandCategories.Utilities,
     requiredPermission: PermissionFlagsBits.ManageMessages,

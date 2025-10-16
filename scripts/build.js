@@ -14,7 +14,8 @@ const stuffToCopy = [
     "package.json",
     "LICENSE",
     "assets",
-    "prisma/schema.prisma"
+    "prisma/schema.prisma",
+    "buildinfo.json"
 ]
 
 let buildOptions = {
@@ -100,6 +101,13 @@ async function run() {
         fs.cpSync(path.join(rootFolderPath, thing), path.join(buildFolderPath, thing), { recursive: true });
     });
     const buildEnd = new Date()
+
+    console.log("Updating buildinfo.json...");
+    const buildInfoPath = path.join(buildFolderPath, "buildinfo.json");
+    let buildInfoContent = JSON.parse(fs.readFileSync(buildInfoPath));
+    buildInfoContent.build_date = buildEnd;
+    fs.writeFileSync(buildInfoPath, JSON.stringify(buildInfoContent));
+
     console.log(`Build successful in ${buildEnd-buildStart}ms.`);
     process.exit();
 }

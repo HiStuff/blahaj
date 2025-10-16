@@ -24,15 +24,13 @@ ${member}
 
 Bardzo byśmy prosili o :
 
-:krecha:  Zaznaczenie ⁠🌵﹒self-role﹒୧
+<:krecha:1395936235826057328>  Zaznaczenie <#1395865561203867678>
 
-:krecha: Przeczytanie ⁠☆﹒—﹒regulamin﹒⟢﹒🌱 
+<:krecha:1395936235826057328> Przeczytanie <#1405147760621256724>
 
-:krecha: Przywitanie się na ⁠☆﹒—﹒ogólny﹒⟢﹒🍡 
+<:krecha:1395936235826057328> Jeśli chcesz to ustawienie sobie koloru twojej nazwy na <#1403111234190184469>
 
-:krecha: Jeśli chcesz to ustawienie sobie koloru twojej nazwy na ⁠⊕﹒˚🌾﹕▧﹒kolor-nicku 
-
-Jeśli chcesz nas wesprzeć możesz ustawić nasz tag który mamy na serwerze lub dać nam boosta/boosty możesz przeczytać sobie jakie są korzyści z boostowania nas jest od tego kanał ⁠꒰💦ㆍboosty-infoㆍ⸝⸝ oczywiście nie zmuszamy lecz jak będziesz chciał/chciała będzie nam bardzo miło 
+Jeśli chcesz nas wesprzeć możesz ustawić nasz tag który mamy na serwerze lub dać nam boosta/boosty możesz przeczytać sobie jakie są korzyści z boostowania nas jest od tego kanał <#1400235770832228454> oczywiście nie zmuszamy lecz jak będziesz chciał/chciała będzie nam bardzo miło 
 
 Życzymy Tobie Miłego Pobytu na Serwerku! :3
 

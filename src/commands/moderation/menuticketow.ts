@@ -4,48 +4,60 @@ import { CommandCategories } from "../../types.js";
 import { client, database } from "../../fembot.js";
 
 function getEmbedTitle(interaction: ChatInputCommandInteraction) {
-	if (interaction.options.getSubcommand(true) == "custom") { return interaction.options.getString("tytulembeda", true) } else { return "✉️ Stwórz ticketa." }
+	if (interaction.options.getSubcommand(true) == "custom") { return interaction.options.getString("embedtitle", true) } else { return `✉️ ${client.lang.getOther(interaction.guildLocale, "open_ticket_embed_title")}` }
 }
 
 function getEmbedDescription(interaction: ChatInputCommandInteraction) {
-	if (interaction.options.getSubcommand(true) == "custom") { return interaction.options.getString("opisembeda", true) } else { return "Kliknij przycisk poniżej aby otworzyć ticketa." }
+	if (interaction.options.getSubcommand(true) == "custom") { return interaction.options.getString("embeddescription", true) } else { return client.lang.getOther(interaction.guildLocale, "open_ticket_embed_description") }
 }
 
 function getButtonId(interaction: ChatInputCommandInteraction) {
-	if (interaction.options.getSubcommand(true) == "custom") { return "cmt-" + interaction.options.getString("idmotywu", true) } else { return "createticketmenu" }
+	if (interaction.options.getSubcommand(true) == "custom") { return "cmt-" + interaction.options.getString("themeid", true) } else { return "createticketmenu" }
 }
 
 export default {
 	data: new SlashCommandBuilder()
-		.setName('menuticketow')
-		.setDescription('Wysyła menu ticketa.')
+		.setName('ticketmenu')
+		.setNameLocalizations(client.lang.getNameLocalizations("ticketmenu"))
+		.setDescription('Sends ticket menu.')
+		.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticketmenu"))
 		.addSubcommand(input =>
 			input
 				.setName("custom")
-				.setDescription("Customowe menu.")
+				.setNameLocalizations(client.lang.getNameLocalizations("ticketmenu_custom"))
+				.setDescription("Custom menu.")
+				.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticketmenu_custom"))
 				.addStringOption(input =>
 					input
-						.setName("tytulembeda")
+						.setName("embedtitle")
+						.setNameLocalizations(client.lang.getNameLocalizations("ticketmenu_custom_embedtitle"))
 						.setRequired(true)
-						.setDescription("Tytuł embeda.")
+						.setDescription("Embed title.")
+						.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticketmenu_custom_embedtitle"))
 						.setMaxLength(100)
 				).addStringOption(input =>
 					input
-						.setName("opisembeda")
+						.setName("embeddescription")
+						.setNameLocalizations(client.lang.getNameLocalizations("ticketmenu_custom_embeddescription"))
 						.setRequired(true)
-						.setDescription("Opis embeda.")
+						.setDescription("embeddescription")
+						.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticketmenu_custom_embeddescription"))
 						.setMaxLength(500)
 				).addStringOption(input =>
 					input
-						.setName("idmotywu")
+						.setName("themeid")
+						.setNameLocalizations(client.lang.getNameLocalizations("ticketmenu_custom_themeid"))
 						.setRequired(true)
-						.setDescription("ID motywu.")
+						.setDescription("Theme ID.")
+						.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticketmenu_custom_themeid"))
 						.setMaxLength(100)
 				)
 		).addSubcommand(input =>
 			input
-				.setName("normalne")
-				.setDescription("Normalne menu.")
+				.setName("selector")
+				.setNameLocalizations(client.lang.getNameLocalizations("ticketmenu_selector"))
+				.setDescription("Selector menu.")
+				.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticketmenu_selector"))
 		)
 		.setContexts(InteractionContextType.Guild)
 		.setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
@@ -63,15 +75,15 @@ export default {
 		let actionRow: ActionRowBuilder<ButtonBuilder> = new ActionRowBuilder<ButtonBuilder>()
 			.addComponents(new ButtonBuilder()
 				.setCustomId(getButtonId(interaction))
-				.setLabel("Stwórz ticket!")
+				.setLabel(client.lang.getOther(interaction.guildLocale, "open_ticket_button_text"))
 				.setEmoji("✉️")
 				.setStyle(ButtonStyle.Secondary)
 		)
 		if (interaction.channel?.isSendable()) {
 			await interaction.channel.send({ embeds: [embed], components: [actionRow] });
-			await interaction.followUp("`✅ Wysłano`")
+			await interaction.followUp(client.lang.getResponse(interaction.locale, "ticketmenu_sent"))
 		} else {
-			await interaction.followUp("`⚠️ Nie udało się wysłać menu ticketów. (Powód: Na kanał nie da się wysyłać wiadomości.)`");
+			await interaction.followUp(client.lang.getResponse(interaction.locale, "ticketmenu_cant_send"));
 		}
 		
 		return true;

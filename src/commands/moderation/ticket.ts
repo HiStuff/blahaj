@@ -6,23 +6,31 @@ import { client, database } from "../../fembot.js";
 export default {
 	data: new SlashCommandBuilder()
 		.setName('ticket')
-		.setDescription('Zarządzaj ticketami.')
+        .setNameLocalizations(client.lang.getNameLocalizations("ticket"))
+		.setDescription('Manage tickets.')
+        .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticket"))
         .addSubcommand(input =>
             input
-                .setName("ustawkategorie")
-                .setDescription("Ustaw kategorie w której mają pojawiać się tickety.")
+                .setName("setcategory")
+                .setNameLocalizations(client.lang.getNameLocalizations("ticket_setcategory"))
+                .setDescription("Set category in which tickets will spawn in.")
+                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticket_setcategory"))
                 .addChannelOption(input =>
                     input
-                        .setName("kategoria")
-                        .setDescription("Kategoria w której mają pojawiać się tickety.")
+                        .setName("category")
+                        .setNameLocalizations(client.lang.getNameLocalizations("ticket_category"))
+                        .setDescription("Category in which tickets will spawn in.")
+                        .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticket_category"))
                         .addChannelTypes(ChannelType.GuildCategory)
                         .setRequired(true)
                 )
         )
         .addSubcommand(input =>
             input
-                .setName("pomoc")
-                .setDescription("Pomoc jak ustawić funkcję ticketów.")
+                .setName("help")
+                .setNameLocalizations(client.lang.getNameLocalizations("ticket_help"))
+                .setDescription("Ticket setup guide.")
+                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ticket_help"))
         )
 		.setContexts(InteractionContextType.Guild)
 		.setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
@@ -33,21 +41,16 @@ export default {
 		if (!interaction.guildId) return false;
 		await interaction.deferReply();
         switch (interaction.options.getSubcommand(true)) {
-            case "ustawkategorie": {
+            case "setcategory": {
                 await database.guild.update({
                     where: { id: interaction.guildId },
-                    data: { ticketCategoryId: interaction.options.getChannel("kategoria", true).id }
+                    data: { ticketCategoryId: interaction.options.getChannel("category", true).id }
                 });
-                await interaction.followUp(`\`✅ Ustawiono kategorie na ${interaction.options.getChannel("kategoria", true).name}.\``);
+                await interaction.followUp(client.lang.getResponse(interaction.locale, "ticket_setcategory_set", interaction.options.getChannel("category", true).name || "???"));
                 break;
             }
-            case "pomoc": {
-                await interaction.followUp(`
-# Jak ustawić tickety?
-- Ustaw kategorię komendą /ticket ustawkategorie
-- Dodaj motyw komendą /motywticketa stworz
-- Wyślij menu ticketów komendą /menuticketow normalne/custom
-                `);
+            case "help": {
+                await interaction.followUp(client.lang.getResponse(interaction.locale, "ticket_help"));
                 break;
             }
         }

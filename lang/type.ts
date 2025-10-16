@@ -15,6 +15,9 @@ export interface Language {
     },
     responses: {
         [K: string]: any
+    },
+    other: {
+        [K: string]: any
     }
 }
 

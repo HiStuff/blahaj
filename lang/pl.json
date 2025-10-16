@@ -1,0 +1,122 @@
+{
+    "locale": "pl",
+    "translator": {
+        "artificial": false,
+        "id": "1393781155144269927",
+        "artificial_source": null
+    },
+    "localizations": {
+        "simpleembed": {
+            "name": "prostyembed",
+            "description": "Stwórz prosty embed."
+        },
+        "simpleembed_title": {
+            "name": "tytul",
+            "description": "Tytuł."
+        },
+        "simpleembed_description": {
+            "name": "opis",
+            "description": "Opis"
+        },
+        "simpleembed_color": {
+            "name": "kolor",
+            "description": "Kolor"
+        },
+        "ping": {
+            "name": "ping",
+            "description": "Pokazuje że bot działa! >:3"
+        },
+        "warn": {
+            "name": "warn",
+            "description": "Ostrzega...!"
+        },
+        "warn_user": {
+            "name": "osoba",
+            "description": "Osoba do ostrzeżenia!"
+        },
+        "warn_reason": {
+            "name": "powod",
+            "description": "Powód."
+        },
+        "ticket": {
+            "name": "ticket",
+            "description": "Zarządzaj ticketami!"
+        },
+        "ticket_setcategory": {
+            "name": "ustawkategorie",
+            "description": "Kategoria w których tickety będą się pojawiać."
+        },
+        "ticket_category": {
+            "name": "kategoria",
+            "description": "Kategoria w których tickety będą się pojawiać."
+        },
+        "ticket_help": {
+            "name": "pomoc",
+            "description": "Pokazuje jak ustawić tickety."
+        },
+        "info": {
+            "name": "informacje",
+            "description": "Wysyła informacje o bocie."
+        },
+        "ticketmenu": {
+            "name": "menuticketow",
+            "description": "Wysyła menu ticketów."
+        },
+        "ticketmenu_custom": {
+            "name": "custom",
+            "description": "Niestandardowe menu."
+        },
+        "ticketmenu_custom_embedtitle": {
+            "name": "tytulembeda",
+            "description": "Tytuł embeda."
+        },
+        "ticketmenu_custom_embeddescription": {
+            "name": "opisembeda",
+            "description": "Opis embeda."
+        },
+        "ticketmenu_custom_themeid": {
+            "name": "idmotywu",
+            "description": "ID motywu."
+        },
+        "ticketmenu_selector": {
+            "name": "selektor",
+            "description": "Menu typu \"selektor\"."
+        }
+    },
+    "responses": {
+        "ping_response": {
+            "title": "Opóźnienie",
+            "description": "🏓 Opóźnienie wynosi `~{0}ms`"
+        },
+        "ping_checking": "`🕑 Sprawdzanie opóźnienia...`",
+
+        "warn_warned_public": {
+            "title": "Warn",
+            "description": "{0} został ostrzeżony za {1} przez {2}."
+        },
+        "warn_warned": "`✅ Ostrzeżono {0} za {1}. (ID ostrzeżenia: {2})`",
+
+        "info_libraries": "Biblioteki",
+        "info_bot_owner": "Właściciel bota",
+        "info_important_links": "Ważne linki",
+        "info_advertise": "Dołącz do naszego serwera!",
+        "info_uptime": "Czas działania tej instancji",
+        "info_footer": "Psst... Wykonaj /pomoc. :3",
+
+        "ticket_setcategory_set": "`✅ Ustawiono kategorię na {0}.`",
+        "ticket_help": "# Jak ustawić tickety?\n- Ustaw kategorię komendą /ticket ustawkategorie\n- Stwórz motyw komendą /motywticketa stworz\n- Zresp menu ticketa komendą /menuticketow selektor/niestandardowe",
+        
+        "ticketmenu_sent": "`✅ Wysłano.`",
+        "ticketmenu_cant_send": "`❌ Nie można wysyłać wiadomości na tym kanale. Menu ticketa nie zostało wysłane.`"
+
+    },
+    "other": {
+        "open_ticket_embed_title": "Otwórz ticketa.",
+        "open_ticket_embed_description": "Kliknij przycisk poniżej aby otworzyć ticketa.",
+        "open_ticket_button_text": "Otwórz ticketa.",
+        "ticket_menu_broken": "Te menu ticketa jest zepsute. Proszę, zgłos ten błąd administracji serwera.",
+        "ticket_theme_selector_nothemes": "Pusto tu. :<",
+        "ticket_theme_selector_text": "Stwórz ticket na temat:",
+        "ticket_theme_selector_title": "Wybierz temat."
+    }
+}

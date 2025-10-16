@@ -16,23 +16,23 @@ export default {
 	async execute(interaction: ChatInputCommandInteraction) {
 		await interaction.deferReply();
 		const labelEmbed = new EmbedBuilder()
-			.setTitle(`${client.version.name} (${client.version.codename})`)
+			.setTitle(`${client.version.name} (${client.version.codename}) ${client.version.developmental ? "(dev)" : ""}`)
 			.setColor(0x96EFFF)
 			.setDescription(packagejson.description);
 		const ownerUsername = ((client.application?.owner || await client.users.fetch(config.ownerId)) as User).username
 		const infoEmbed = new EmbedBuilder()
 			.setTimestamp(new Date())
 			.addFields(
-				{ name: "Biblioteka", value: `
+				{ name: client.lang.getResponse(interaction.guildLocale, "info_libraries"), value: `
 [Node.js](https://nodejs.org/) \`${process.version}\`
 [Discord.js](https://discord.js.org/) \`${version}\``, inline: true },
-				{ name: "Właściciel bota", value: `@${ownerUsername}\n${config.ownerId}`, inline: true },
-				{ name: "Ważne linki", value: `
-[Dołącz na nasz serwer!](${config.invite_link})
+				{ name: client.lang.getResponse(interaction.guildLocale, "info_bot_owner"), value: `@${ownerUsername}\n${config.ownerId}`, inline: true },
+				{ name: client.lang.getResponse(interaction.guildLocale, "info_important_links"), value: `
+[${client.lang.getResponse(interaction.guildLocale, "info_advertise")}](${config.invite_link})
 				`, inline: true },
-				{ name: "Uptime", value: timeToString(process.uptime()*1000) }
+				{ name: client.lang.getResponse(interaction.guildLocale, "info_uptime"), value: timeToString(process.uptime()*1000) }
 			)
-			.setFooter({ text: "Psst... Obczaj komende /pomoc." });
+			.setFooter({ text: client.lang.getResponse(interaction.guildLocale, "info_footer") });
 		await interaction.followUp({
 			embeds: [labelEmbed, infoEmbed]
 		});

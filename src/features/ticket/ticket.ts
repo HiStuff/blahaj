@@ -31,12 +31,12 @@ export async function handleCustomMenuButtonClick(client: FembotClient, interact
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
     let theme = interaction.customId.substring(4)
     let ticket = new Ticket(client, interaction.guild, undefined, interaction.user, theme);
-    if (!(await ticket.init(interaction.guild.id))) { await interaction.followUp({ content: "Te menu tworzenia ticketa jest zepsute, proszę skontaktować się z administracją serwera.", flags: MessageFlags.Ephemeral }); return; }
+    if (!(await ticket.init(interaction.guild.id))) { await interaction.followUp({ content: client.lang.getOther(interaction.locale, "ticket_menu_broken"), flags: MessageFlags.Ephemeral }); return; }
     await ticket.createTicket(client);
     if (ticket.channel) {
         await interaction.followUp(`<#${ticket.channel.id}>`);
     } else {
-        await interaction.followUp(`Stworzono ticket.`);
+        await interaction.followUp("`✅`");
     }
 }
 

@@ -10,7 +10,7 @@ export default {
 		await interaction.deferReply({ flags: [ MessageFlags.Ephemeral ] })
 		if (!interaction.guildId) return;
         let selectionmenu = new StringSelectMenuBuilder()
-			.setPlaceholder("Wybierz temat.")
+			.setPlaceholder(client.lang.getOther(interaction.locale, "ticket_theme_selector_title"))
 			.setCustomId("createticket");
 		let themes = await database.ticketTheme.findMany({
 			where: {
@@ -28,12 +28,12 @@ export default {
 		});
 		if (selectionmenu.options.length == 0) {
 			let selectionoption = new StringSelectMenuOptionBuilder()
-				.setLabel("Brak motywów ticketów.")
+				.setLabel(client.lang.getOther(interaction.locale, "ticket_theme_selector_nothemes"))
 				.setEmoji("😶")
 				.setValue("nothemes")
 			selectionmenu.addOptions(selectionoption)
 		}
-		const res = await interaction.followUp({ content: "Stwórz ticket o temacie:", components: [new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectionmenu)], withResponse: true })
+		const res = await interaction.followUp({ content: client.lang.getOther(interaction.locale, "ticket_theme_selector_text"), components: [new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(selectionmenu)], withResponse: true })
 		const collector = res.createMessageComponentCollector({ componentType: ComponentType.StringSelect, time: 60_000 });
 		collector.on("collect", async i => {
 			if (!interaction.guild || !interaction.channel || !interaction.user || interaction.channel.type != ChannelType.GuildText) return false;
