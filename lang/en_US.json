@@ -81,6 +81,18 @@
         "ticketmenu_selector": {
             "name": "selector",
             "description": "Selector menu."
+        },
+        "ai": {
+            "name": "ai",
+            "description": "Large language model. Yuh-"
+        },
+        "ai_chat": {
+            "name": "chat",
+            "description": "Chat."
+        },
+        "ai_chat_message": {
+            "name": "message",
+            "description": "Message you want to send to the AI."
         }
     },
     "responses": {
@@ -101,13 +113,17 @@
         "info_important_links": "Important links",
         "info_advertise": "Join our server! (Polish)",
         "info_uptime": "This instance's uptime",
+        "info_build_date": "This build was built on:",
         "info_footer": "Psst... Execute /help. :3",
+        "info_not_deployed": "N/A (Not deployed)",
 
         "ticket_setcategory_set": "`✅ Set category to {0}.`",
         "ticket_help": "# How to setup tickets?\n- Set the category using /ticket setcategory\n- Create theme using /tickettheme create\n- Spawn ticket's menu using /ticketmenu normal/custom",
         
         "ticketmenu_sent": "`✅ Sent.`",
-        "ticketmenu_cant_send": "`❌ Can't send messages on this channel. Ticket menu wasn't sent.`"
+        "ticketmenu_cant_send": "`❌ Can't send messages on this channel. Ticket menu wasn't sent.`",
+
+        "ai_failed_to_connect": "Failed to connect with the LLM server."
 
     },
     "other": {

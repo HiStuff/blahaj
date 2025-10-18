@@ -14,6 +14,7 @@ const stuffToCopy = [
     "package.json",
     "LICENSE",
     "assets",
+    "lang",
     "prisma/schema.prisma",
     "buildinfo.json"
 ]
@@ -34,7 +35,7 @@ let buildOptions = {
     "withEnvironmentFile": {
         question: "Include .env file?",
         value: true
-    }
+    },
 }
 
 const yesAnswers = [
@@ -84,7 +85,7 @@ async function run() {
         console.log(`Build failed! ${err}`);
     }
     fs.rmSync(path.join(buildFolderPath, "config.json"));
-    console.log("Copying stuff...");
+    console.log("Copying...");
     if (buildOptions.withDatabase.value) {
         fs.cpSync(path.join(rootFolderPath, "prisma/dev.db"), path.join(buildFolderPath, "prisma/dev.db"), { recursive: true });
     }

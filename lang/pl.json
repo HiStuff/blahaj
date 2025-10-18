@@ -81,6 +81,18 @@
         "ticketmenu_selector": {
             "name": "selektor",
             "description": "Menu typu \"selektor\"."
+        },
+        "ai": {
+            "name": "ai",
+            "description": "Duży model językowy."
+        },
+        "ai_chat": {
+            "name": "czatuj",
+            "description": "Czatuj."
+        },
+        "ai_chat_message": {
+            "name": "message",
+            "description": "Wiadomość którą chcesz wysłać do AI."
         }
     },
     "responses": {
@@ -101,13 +113,17 @@
         "info_important_links": "Ważne linki",
         "info_advertise": "Dołącz do naszego serwera!",
         "info_uptime": "Czas działania tej instancji",
+        "info_build_date": "Ten build został zbudowany dnia:",
         "info_footer": "Psst... Wykonaj /pomoc. :3",
+        "info_not_deployed": "nd. (Deweloperska instancja)",
 
         "ticket_setcategory_set": "`✅ Ustawiono kategorię na {0}.`",
         "ticket_help": "# Jak ustawić tickety?\n- Ustaw kategorię komendą /ticket ustawkategorie\n- Stwórz motyw komendą /motywticketa stworz\n- Zresp menu ticketa komendą /menuticketow selektor/niestandardowe",
         
         "ticketmenu_sent": "`✅ Wysłano.`",
-        "ticketmenu_cant_send": "`❌ Nie można wysyłać wiadomości na tym kanale. Menu ticketa nie zostało wysłane.`"
+        "ticketmenu_cant_send": "`❌ Nie można wysyłać wiadomości na tym kanale. Menu ticketa nie zostało wysłane.`",
+
+        "ai_failed_to_connect": "Nie udało połączyć się z serwerem LLM."
 
     },
     "other": {

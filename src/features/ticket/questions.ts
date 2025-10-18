@@ -38,7 +38,6 @@ export class Questions {
             result.fields.fields.forEach(field => {
                 answers.push({ name: questions.find(question => question.id === field.customId)?.question || "* BRAK NAZWY *", answer: field.value });
             });
-            console.log(answers)
             this.answers = answers;
             return true;
         } catch (err) {

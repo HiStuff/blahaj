@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { fileURLToPath } from "node:url";
-import { Language, Languages } from "../../lang/type.js";
+import { Language, Languages } from "../types.js";
 import { Locale } from "discord.js";
 import * as log from "../utils/logger.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

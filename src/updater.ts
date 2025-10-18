@@ -14,7 +14,7 @@ if (process.argv[2] == "--development") {
 }
 
 export function getVersion() {
-    return { name: config.bot_name, codename: buildinfo.version, color: config.main_color, developmental: !deployed } as IVersion;
+    return { name: config.bot_name, codename: buildinfo.version, build_date: buildinfo.build_date, color: config.main_color, developmental: !deployed } as IVersion;
 }
 
 export async function update(buffer?: Buffer, exit_on_update: boolean = true) {

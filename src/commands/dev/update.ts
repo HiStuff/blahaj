@@ -37,7 +37,7 @@ export default {
                 .setDescription("Paczka aktualizacji.")
                 .setRequired(true)
         ),
-	category: CommandCategories.Info,
+	category: CommandCategories.Developer,
 	flags: [CommandFlags.DevOnly],
 	async execute(interaction: ChatInputCommandInteraction) {
 		await interaction.deferReply();

@@ -5,6 +5,7 @@ import { LanguageManager } from "./utils/languageManager.js";
 export interface IVersion {
     name: string,
     codename: string,
+    build_date: Date | null,
     color: string,
     developmental: boolean
 }
@@ -84,4 +85,33 @@ export class APIResponsePayload<Type> {
 export enum APIResponseCode {
     Success = "SUCCESS",
     FailedToUpdate = "FAILED_TO_UPDATE",
+}
+
+// lang
+
+export type Translator = {
+    artificial: boolean
+    id: string
+    artificial_source: string | null
+}
+
+export interface Language {
+    locale: string
+    translator: Translator,
+    localizations: {
+        [K: string]: {
+            name: string,
+            description: string
+        }
+    },
+    responses: {
+        [K: string]: any
+    },
+    other: {
+        [K: string]: any
+    }
+}
+
+export interface Languages {
+    [K: string]: Language
 }

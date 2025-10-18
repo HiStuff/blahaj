@@ -3,6 +3,7 @@ import { FembotClient } from "../../types.js";
 import { randomInt, randomUUID } from "crypto";
 import { database } from "../../fembot.js";
 import { Prisma, PrismaClient, TicketTheme } from "../../../prisma/client/index.js";
+import { Questions } from "./questions.js";
 
 let openButton: ButtonBuilder = new ButtonBuilder().setLabel("Otwórz").setCustomId("openticket").setStyle(ButtonStyle.Primary).setEmoji("🚪");
 let closeButton: ButtonBuilder = new ButtonBuilder().setLabel("Zamknij").setCustomId("closeticket").setStyle(ButtonStyle.Danger).setEmoji("⛔");
@@ -28,15 +29,16 @@ export async function getTicketFromChannel(bot: FembotClient, guild: Guild, chan
 
 export async function handleCustomMenuButtonClick(client: FembotClient, interaction: ButtonInteraction) {
     if (!interaction.guild) return;
-    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
     let theme = interaction.customId.substring(4)
     let ticket = new Ticket(client, interaction.guild, undefined, interaction.user, theme);
-    if (!(await ticket.init(interaction.guild.id))) { await interaction.followUp({ content: client.lang.getOther(interaction.locale, "ticket_menu_broken"), flags: MessageFlags.Ephemeral }); return; }
+    if (!(await ticket.init(interaction.guild.id))) { await interaction.reply({ content: client.lang.getOther(interaction.locale, "ticket_menu_broken"), flags: MessageFlags.Ephemeral }); return; }
+    const questions = new Questions(interaction, theme);
+    await questions.ask();
     await ticket.createTicket(client);
     if (ticket.channel) {
-        await interaction.followUp(`<#${ticket.channel.id}>`);
+        await interaction.followUp({ content: `<#${ticket.channel.id}>`, flags: MessageFlags.Ephemeral });
     } else {
-        await interaction.followUp("`✅`");
+        await interaction.followUp({ content: "`✅`", flags: MessageFlags.Ephemeral });
     }
 }
 

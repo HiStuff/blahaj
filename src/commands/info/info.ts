@@ -30,7 +30,8 @@ export default {
 				{ name: client.lang.getResponse(interaction.guildLocale, "info_important_links"), value: `
 [${client.lang.getResponse(interaction.guildLocale, "info_advertise")}](${config.invite_link})
 				`, inline: true },
-				{ name: client.lang.getResponse(interaction.guildLocale, "info_uptime"), value: timeToString(process.uptime()*1000) }
+				{ name: client.lang.getResponse(interaction.guildLocale, "info_uptime"), value: timeToString(process.uptime()*1000) },
+				{ name: client.lang.getResponse(interaction.guildLocale, "info_build_date"), value: client.version.build_date ? new Date(client.version.build_date).toLocaleString(interaction.guildLocale || "en-US") : client.lang.getResponse(interaction.guildLocale, "info_not_deployed")}
 			)
 			.setFooter({ text: client.lang.getResponse(interaction.guildLocale, "info_footer") });
 		await interaction.followUp({

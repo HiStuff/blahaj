@@ -6,6 +6,7 @@ import { CommandCategories, CommandFlags, FembotClient, IButton, ICommand } from
 import path from "path";
 import fs from "fs";
 import config from '../config.json' with { type: "json" };
+import OpenAI from "openai";
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { Guild, PrismaClient, User } from "../prisma/client/default.js";
@@ -15,9 +16,15 @@ import { getTicketFromChannel, handleCustomMenuButtonClick, Ticket } from "./fea
 
 import { LanguageManager } from "./utils/languageManager.js";
 import { getVersion } from "./updater.js";
+import Chatbot from "./features/chatbot/chatbot.js";
 
 export const client = new FembotClient(getVersion(), new LanguageManager(), { intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions] });
 export const database = new PrismaClient();
+export const chatbot = new Chatbot(new OpenAI({
+    apiKey: process.env.LLM_API_KEY,
+    baseURL: config.llm_api_host
+}), {});
+
 client.lang.load();
 
 loadContextMenuCommands();
