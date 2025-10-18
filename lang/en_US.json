@@ -82,17 +82,17 @@
             "name": "selector",
             "description": "Selector menu."
         },
-        "ai": {
-            "name": "ai",
+        "chatbot": {
+            "name": "chatbot",
             "description": "Large language model. Yuh-"
         },
-        "ai_chat": {
+        "chatbot_chat": {
             "name": "chat",
             "description": "Chat."
         },
-        "ai_chat_message": {
+        "chatbot_chat_message": {
             "name": "message",
-            "description": "Message you want to send to the AI."
+            "description": "Message you want to send to the chatbot."
         }
     },
     "responses": {
@@ -123,7 +123,7 @@
         "ticketmenu_sent": "`✅ Sent.`",
         "ticketmenu_cant_send": "`❌ Can't send messages on this channel. Ticket menu wasn't sent.`",
 
-        "ai_failed_to_connect": "Failed to connect with the LLM server."
+        "chatbot_failed_to_connect": "Failed to connect with the LLM server."
 
     },
     "other": {

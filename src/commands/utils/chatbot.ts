@@ -7,20 +7,20 @@ import { ChatCompletionMessageParam } from "openai/resources";
 
 export default {
 	data: new SlashCommandBuilder()
-		.setName('ai')
-        .setNameLocalizations(client.lang.getNameLocalizations("ai"))
+		.setName('chatbot')
+        .setNameLocalizations(client.lang.getNameLocalizations("chatbot"))
 		.setDescription('Large language model. Yuh-')
-        .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ai"))
+        .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("chatbot"))
         .addSubcommand(input => input
             .setName("chat")
-            .setNameLocalizations(client.lang.getNameLocalizations("ai_chat"))
+            .setNameLocalizations(client.lang.getNameLocalizations("chatbot_chat"))
             .setDescription("Chat.")
-            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ai_chat"))
+            .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("chatbot_chat"))
             .addStringOption(input => input
                 .setName("message")
-                .setNameLocalizations(client.lang.getNameLocalizations("ai_chat_message"))
-                .setDescription("Message you want to send to the AI.")
-                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("ai_chat_message"))
+                .setNameLocalizations(client.lang.getNameLocalizations("chatbot_chat_message"))
+                .setDescription("Message you want to send to the chatbot.")
+                .setDescriptionLocalizations(client.lang.getDescriptionLocalizations("chatbot_chat_message"))
                 .setRequired(true)
             )
         ),
@@ -31,7 +31,7 @@ export default {
         try {
             await fetch(chatbot.llmClient.baseURL);
         } catch(err) {
-            await interaction.followUp(client.lang.getResponse(interaction.guildLocale, "ai_failed_to_connect"));
+            await interaction.followUp(client.lang.getResponse(interaction.guildLocale, "chatbot_failed_to_connect"));
             return true;
         }
 		switch (interaction.options.getSubcommand(true)) {

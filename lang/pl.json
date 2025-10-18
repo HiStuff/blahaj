@@ -82,17 +82,17 @@
             "name": "selektor",
             "description": "Menu typu \"selektor\"."
         },
-        "ai": {
-            "name": "ai",
+        "chatbot": {
+            "name": "chatbot",
             "description": "Duży model językowy."
         },
-        "ai_chat": {
+        "chatbot_chat": {
             "name": "czatuj",
             "description": "Czatuj."
         },
-        "ai_chat_message": {
+        "chatbot_chat_message": {
             "name": "message",
-            "description": "Wiadomość którą chcesz wysłać do AI."
+            "description": "Wiadomość którą chcesz wysłać do chatbota."
         }
     },
     "responses": {
@@ -123,7 +123,7 @@
         "ticketmenu_sent": "`✅ Wysłano.`",
         "ticketmenu_cant_send": "`❌ Nie można wysyłać wiadomości na tym kanale. Menu ticketa nie zostało wysłane.`",
 
-        "ai_failed_to_connect": "Nie udało połączyć się z serwerem LLM."
+        "chatbot_failed_to_connect": "Nie udało połączyć się z serwerem LLM."
 
     },
     "other": {
