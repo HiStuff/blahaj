@@ -11,26 +11,29 @@ import path from "path";
 import { SessionUser } from "../types.js";
 const __dirname = import.meta.dirname;
 
-const app = Fastify()
+const app = Fastify();
 
 if (!process.env.SESSION_SECRET) throw Error("bru");
 
 declare module "fastify" {
-  interface Session {
-    user: SessionUser
-  }
+	interface Session {
+		user: SessionUser;
+	}
 }
 
 app.register(cookie);
 app.register(cors, {
-  origin: config.frontend_url,
-  optionsSuccessStatus: 200
-})
-app.register(session, { secret: process.env.SESSION_SECRET, cookie: { secure: false } });
+	origin: config.frontend_url,
+	optionsSuccessStatus: 200,
+});
+app.register(session, {
+	secret: process.env.SESSION_SECRET,
+	cookie: { secure: false },
+});
 app.register(autoload, {
-  dir: path.join(__dirname, "routes"),
-  routeParams: true
-})
+	dir: path.join(__dirname, "routes"),
+	routeParams: true,
+});
 
 //if (app.get('env') === 'production') {
 //  app.set('trust proxy', 1) // trust first proxy
@@ -38,8 +41,13 @@ app.register(autoload, {
 //}
 
 export function listen() {
-  app.listen({ host: "0.0.0.0", port: config.apiServerPort }, (err, address) => {
-    if (err) { throw err; }
-    log.success(`API Server listening at ${address}.`);
-  });
+	app.listen(
+		{ host: "0.0.0.0", port: config.apiServerPort },
+		(err, address) => {
+			if (err) {
+				throw err;
+			}
+			log.success(`API Server listening at ${address}.`);
+		},
+	);
 }

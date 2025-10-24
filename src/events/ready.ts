@@ -1,9 +1,9 @@
-import { Client, Events } from 'discord.js';
-import { client } from '../fembot.js';
-import { eventsCounter } from '../handler.js';
-import config from '../../config.json' with { type: "json" };
-import { deployGuild } from '../utils/deploy.js';
-import { listen } from '../http/server.js';
+import { Client, Events } from "discord.js";
+import { client } from "../fembot.js";
+import { eventsCounter } from "../handler.js";
+import config from "../../config.json" with { type: "json" };
+import { deployGuild } from "../utils/deploy.js";
+import { listen } from "../http/server.js";
 
 export default {
 	name: Events.ClientReady,
@@ -19,5 +19,5 @@ export default {
 		console.log();
 		deployGuild(config.guildId);
 		listen();
-	}
+	},
 };

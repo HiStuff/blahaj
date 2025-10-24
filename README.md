@@ -1,1 +1,1 @@
-# [blahaj](<https://discord.com/oauth2/authorize?client_id=1393911296117969028>)
+# [blahaj](https://discord.com/oauth2/authorize?client_id=1393911296117969028)

@@ -1,138 +1,138 @@
 {
-    "locale": "en-US",
-    "translator": {
-        "artificial": false,
-        "id": "1393781155144269927",
-        "artificial_source": null
-    },
-    "localizations": {
-        "simpleembed": {
-            "name": "simpleembed",
-            "description": "Create simple embed."
-        },
-        "simpleembed_title": {
-            "name": "title",
-            "description": "Title"
-        },
-        "simpleembed_description": {
-            "name": "description",
-            "description": "Description"
-        },
-        "simpleembed_color": {
-            "name": "color",
-            "description": "Color"
-        },
-        "ping": {
-            "name": "ping",
-            "description": "Shows that the bot works!"
-        },
-        "warn": {
-            "name": "warn",
-            "description": "It... Warns!"
-        },
-        "warn_user": {
-            "name": "user",
-            "description": "User to warn."
-        },
-        "warn_reason": {
-            "name": "reason",
-            "description": "Reason."
-        },
-        "ticket": {
-            "name": "ticket",
-            "description": "Manage tickets."
-        },
-        "ticket_setcategory": {
-            "name": "setcategory",
-            "description": "Category in which tickets will spawn in."
-        },
-        "ticket_category": {
-            "name": "category",
-            "description": "Category in which tickets will spawn in."
-        },
-        "ticket_help": {
-            "name": "help",
-            "description": "Shows how to setup tickets."
-        },
-        "info": {
-            "name": "info",
-            "description": "Sends informations about the bot."
-        },
-        "ticketmenu": {
-            "name": "ticketmenu",
-            "description": "Sends ticket menu."
-        },
-        "ticketmenu_custom": {
-            "name": "custom",
-            "description": "Custom menu."
-        },
-        "ticketmenu_custom_embedtitle": {
-            "name": "embedtitle",
-            "description": "Embed title."
-        },
-        "ticketmenu_custom_embeddescription": {
-            "name": "embeddescription",
-            "description": "Embed description."
-        },
-        "ticketmenu_custom_themeid": {
-            "name": "themeid",
-            "description": "Theme ID."
-        },
-        "ticketmenu_selector": {
-            "name": "selector",
-            "description": "Selector menu."
-        },
-        "chatbot": {
-            "name": "chatbot",
-            "description": "Large language model. Yuh-"
-        },
-        "chatbot_chat": {
-            "name": "chat",
-            "description": "Chat."
-        },
-        "chatbot_chat_message": {
-            "name": "message",
-            "description": "Message you want to send to the chatbot."
-        }
-    },
-    "responses": {
-        "ping_response": {
-            "title": "Latency",
-            "description": "🏓 Latency is `~{0}ms`"
-        },
-        "ping_checking": "`🕑 Checking latency...`",
+	"locale": "en-US",
+	"translator": {
+		"artificial": false,
+		"id": "1393781155144269927",
+		"artificial_source": null
+	},
+	"localizations": {
+		"simpleembed": {
+			"name": "simpleembed",
+			"description": "Create simple embed."
+		},
+		"simpleembed_title": {
+			"name": "title",
+			"description": "Title"
+		},
+		"simpleembed_description": {
+			"name": "description",
+			"description": "Description"
+		},
+		"simpleembed_color": {
+			"name": "color",
+			"description": "Color"
+		},
+		"ping": {
+			"name": "ping",
+			"description": "Shows that the bot works!"
+		},
+		"warn": {
+			"name": "warn",
+			"description": "It... Warns!"
+		},
+		"warn_user": {
+			"name": "user",
+			"description": "User to warn."
+		},
+		"warn_reason": {
+			"name": "reason",
+			"description": "Reason."
+		},
+		"ticket": {
+			"name": "ticket",
+			"description": "Manage tickets."
+		},
+		"ticket_setcategory": {
+			"name": "setcategory",
+			"description": "Category in which tickets will spawn in."
+		},
+		"ticket_category": {
+			"name": "category",
+			"description": "Category in which tickets will spawn in."
+		},
+		"ticket_help": {
+			"name": "help",
+			"description": "Shows how to setup tickets."
+		},
+		"info": {
+			"name": "info",
+			"description": "Sends informations about the bot."
+		},
+		"ticketmenu": {
+			"name": "ticketmenu",
+			"description": "Sends ticket menu."
+		},
+		"ticketmenu_custom": {
+			"name": "custom",
+			"description": "Custom menu."
+		},
+		"ticketmenu_custom_embedtitle": {
+			"name": "embedtitle",
+			"description": "Embed title."
+		},
+		"ticketmenu_custom_embeddescription": {
+			"name": "embeddescription",
+			"description": "Embed description."
+		},
+		"ticketmenu_custom_themeid": {
+			"name": "themeid",
+			"description": "Theme ID."
+		},
+		"ticketmenu_selector": {
+			"name": "selector",
+			"description": "Selector menu."
+		},
+		"chatbot": {
+			"name": "chatbot",
+			"description": "Large language model. Yuh-"
+		},
+		"chatbot_chat": {
+			"name": "chat",
+			"description": "Chat."
+		},
+		"chatbot_chat_message": {
+			"name": "message",
+			"description": "Message you want to send to the chatbot."
+		}
+	},
+	"responses": {
+		"ping_response": {
+			"title": "Latency",
+			"description": "🏓 Latency is `~{0}ms`"
+		},
+		"ping_checking": "`🕑 Checking latency...`",
 
-        "warn_warned_public": {
-            "title": "Warn",
-            "description": "{0} got warned by {1} for {2}."
-        },
-        "warn_warned": "`✅ Warned {0} for {1}. (Warn ID: {2})`",
+		"warn_warned_public": {
+			"title": "Warn",
+			"description": "{0} got warned by {1} for {2}."
+		},
+		"warn_warned": "`✅ Warned {0} for {1}. (Warn ID: {2})`",
 
-        "info_libraries": "Libraries",
-        "info_bot_owner": "Bot owner",
-        "info_important_links": "Important links",
-        "info_advertise": "Join our server! (Polish)",
-        "info_uptime": "This instance's uptime",
-        "info_build_date": "This build was built on:",
-        "info_footer": "Psst... Execute /help. :3",
-        "info_not_deployed": "N/A (Not deployed)",
+		"info_libraries": "Libraries",
+		"info_bot_owner": "Bot owner",
+		"info_important_links": "Important links",
+		"info_advertise": "Join our server! (Polish)",
+		"info_uptime": "This instance's uptime",
+		"info_build_date": "This build was built on:",
+		"info_footer": "Psst... Execute /help. :3",
+		"info_not_deployed": "N/A (Not deployed)",
 
-        "ticket_setcategory_set": "`✅ Set category to {0}.`",
-        "ticket_help": "# How to setup tickets?\n- Set the category using /ticket setcategory\n- Create theme using /tickettheme create\n- Spawn ticket's menu using /ticketmenu normal/custom",
-        
-        "ticketmenu_sent": "`✅ Sent.`",
-        "ticketmenu_cant_send": "`❌ Can't send messages on this channel. Ticket menu wasn't sent.`",
+		"ticket_setcategory_set": "`✅ Set category to {0}.`",
+		"ticket_help": "# How to setup tickets?\n- Set the category using /ticket setcategory\n- Create theme using /tickettheme create\n- Spawn ticket's menu using /ticketmenu normal/custom",
 
-        "chatbot_failed_to_connect": "Failed to connect with the LLM server."
+		"ticketmenu_sent": "`✅ Sent.`",
+		"ticketmenu_cant_send": "`❌ Can't send messages on this channel. Ticket menu wasn't sent.`",
 
-    },
-    "other": {
-        "open_ticket_embed_title": "Open ticket.",
-        "open_ticket_embed_description": "Click button below to open a ticket.",
-        "open_ticket_button_text": "Open ticket.",
-        "ticket_menu_broken": "This ticket menu is broken. Please report this error to the server's staff.",
-        "ticket_theme_selector_nothemes": "Empty. :<",
-        "ticket_theme_selector_text": "Create ticket about:",
-        "ticket_theme_selector_title": "Select topic."
-    }
+		"chatbot_failed_to_connect": "Failed to connect with the LLM server.",
+		"chatbot_answer_too_long": "Answer too long."
+	},
+	"other": {
+		"open_ticket_embed_title": "Open ticket.",
+		"open_ticket_embed_description": "Click button below to open a ticket.",
+		"open_ticket_button_text": "Open ticket.",
+		"ticket_menu_broken": "This ticket menu is broken. Please report this error to the server's staff.",
+		"ticket_theme_selector_nothemes": "Empty. :<",
+		"ticket_theme_selector_text": "Create ticket about:",
+		"ticket_theme_selector_title": "Select topic."
+	}
 }
