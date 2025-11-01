@@ -167,7 +167,7 @@
 		"tickettheme_delete_deleting": "`⌛ Usuwanie...`",
 		"tickettheme_delete_deleted": "`✅ Usunięto motyw {0}.`",
 		"tickettheme_delete_notheme": "`❌ Motyw {0} nie istnieje.",
-		
+
 		"tickettheme_list_selector": "Wybór: `{0}`",
 		"tickettheme_list_channelname": "Nazwa kanału: `#{0}`",
 		"tickettheme_list_nothemes": "Brak",
