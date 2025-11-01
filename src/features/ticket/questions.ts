@@ -75,7 +75,8 @@ export class Questions {
 				answers.push({
 					name:
 						questions.find(
-							(question) => question.id.toString() === field.customId,
+							(question) =>
+								question.id.toString() === field.customId,
 						)?.question || "* BRAK NAZWY *",
 					answer: field.value,
 				});

@@ -74,7 +74,11 @@ function getListOfFilesInDirectory(dirPath) {
 		if (piece.isFile()) {
 			list.push(path.join(piece.parentPath, piece.name));
 		} else {
-			list = list.concat(getListOfFilesInDirectory(path.join(piece.parentPath, piece.name)));
+			list = list.concat(
+				getListOfFilesInDirectory(
+					path.join(piece.parentPath, piece.name),
+				),
+			);
 		}
 	});
 	return list;
@@ -140,11 +144,18 @@ async function run() {
 
 	console.log("Compressing into update.zip...");
 	const updateZip = new yazl.ZipFile();
-	getListOfFilesInDirectory(buildFolderPath).forEach(file => {
+	getListOfFilesInDirectory(buildFolderPath).forEach((file) => {
 		updateZip.addFile(file, path.relative(buildFolderPath, file));
 	});
 	updateZip.end();
-	updateZip.outputStream.pipe(fs.createWriteStream(path.join(buildFolderPath, `update.zip`)).on("close", function() { console.log("Compressed into update.zip."); process.exit(); }));
+	updateZip.outputStream.pipe(
+		fs
+			.createWriteStream(path.join(buildFolderPath, `update.zip`))
+			.on("close", function () {
+				console.log("Compressed into update.zip.");
+				process.exit();
+			}),
+	);
 }
 
 run();
