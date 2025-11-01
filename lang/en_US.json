@@ -159,6 +159,21 @@
 		"ticketmenu_sent": "`✅ Sent.`",
 		"ticketmenu_cant_send": "`❌ Can't send messages on this channel. Ticket menu wasn't sent.`",
 
+		"tickettheme_create_processing": "`⌛ Processing...`",
+		"tickettheme_create_created": "`✅ Created a ticket theme with ID {0}, channel name #{1} and selector {2} - {3}.`",
+		"tickettheme_create_malformedurl": "`⚠️ URL you provided is malformed.`",
+		"tickettheme_create_errorwhileprocessing": "`⚠️ An error occured while processing. Make sure you provided a correct URL from discohook.app`",
+
+		"tickettheme_delete_deleting": "`⌛ Deleting...`",
+		"tickettheme_delete_deleted": "`✅ Deleted theme {0}.`",
+		"tickettheme_delete_notheme": "`❌ Theme {0} doesn't exist.`",
+		
+		"tickettheme_list_selector": "Selector: `{0}`",
+		"tickettheme_list_channelname": "Channel name: `#{0}`",
+		"tickettheme_list_nothemes": "None",
+
+		"tickettheme_noselectorname": "NONE",
+
 		"chatbot_failed_to_connect": "Failed to connect with the LLM server.",
 		"chatbot_answer_too_long": "Answer too long."
 	},

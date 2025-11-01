@@ -82,26 +82,25 @@ export default {
 	async execute(interaction: ChatInputCommandInteraction) {
 		await interaction.deferReply();
 		if (!interaction.channel?.isSendable() || !interaction.guildId) return;
-		if (interaction.options.getSubcommand(true) == "usun") {
+		if (interaction.options.getSubcommand(true) == "delete") {
 			// USUN
 			// USUN
 			// USUN
-			const res = await interaction.followUp("`⌛ Usuwanie...`");
+			const res = await interaction.followUp(lang.getResponse(interaction.guildLocale, "tickettheme_delete_deleting"));
 			try {
 				await database.ticketTheme.delete({
 					where: {
 						guildId: interaction.guildId,
-						id: interaction.options.getString("idmotywu", true),
+						id: interaction.options.getString("themeid", true),
 					},
 				});
-				res.edit("`✅ Usunięto!`");
+				res.edit(lang.getResponse(interaction.guildLocale, "tickettheme_delete_deleted", interaction.options.getString("themeid", true)));
 			} catch (err: any) {
-				console.log(err);
 				if (err.code == "P2025") {
-					res.edit("`❌ Ten motyw nie istnieje.`");
+					res.edit(lang.getResponse(interaction.guildLocale, "tickettheme_delete_notheme", interaction.options.getString("themeid", true)));
 				}
 			}
-		} else if (interaction.options.getSubcommand(true) == "lista") {
+		} else if (interaction.options.getSubcommand(true) == "list") {
 			// LISTA
 			// LISTA
 			// LISTA
@@ -112,18 +111,18 @@ export default {
 			if (themes.length > 0) {
 				themes.forEach((theme) => {
 					content += `**${theme.id}**\n`;
-					content += `Wybór: \`${theme.selectionOptionIcon || "⚫"} -  ${theme.selectionOptionName || "BRAK"}\`\n`;
-					content += `Nazwa kanału: \`#${theme.channelName}\`\n`;
+					content += lang.getResponse(interaction.guildLocale, "tickettheme_list_selector", `${theme.selectionOptionIcon || "⚫"} -  ${theme.selectionOptionName || lang.getResponse(interaction.guildLocale, "tickettheme_noselectorname")}`) + "\n";
+					content += lang.getResponse(interaction.guildLocale, "tickettheme_list_channelname", theme.channelName) + "\n";
 				});
 			} else {
-				content = "Brak.";
+				content = lang.getResponse(interaction.guildLocale, "tickettheme_list_nothemes");
 			}
 			await interaction.followUp(content);
-		} else if (interaction.options.getSubcommand(true) == "stworz") {
+		} else if (interaction.options.getSubcommand(true) == "create") {
 			// STWORZ
 			// STWORZ
 			// STWORZ
-			let res = await interaction.followUp("`⌛ Przetwarzanie...`");
+			let res = await interaction.followUp(lang.getResponse(interaction.guildLocale, "tickettheme_create_processing"));
 			try {
 				const url = new URL(interaction.options.getString("url", true));
 				const data = url.searchParams.get("data");
@@ -137,31 +136,27 @@ export default {
 							data: {
 								selectionOptionName:
 									interaction.options.getString(
-										"nazwawyboru",
+										"selectorname",
 									),
 								selectionOptionIcon:
 									interaction.options.getString(
-										"emotkawyboru",
+										"selectoremote",
 									),
 								channelName: interaction.options.getString(
-									"nazwakanalu",
+									"channelname",
 									true,
 								),
 								guildId: interaction.guildId,
 								ticketIntro: JSON.stringify(msg),
 							},
 						});
-						await res.edit(
-							`\`✅ Stworzono motyw ticketa z ID ${ticketTheme.id}, nazwą kanału #${interaction.options.getString("nazwakanalu", true)} i wyborem ${interaction.options.getString("emotkawyboru") || "⚫"} - ${interaction.options.getString("nazwawyboru") || "BRAK"}.\``,
-						);
+						await res.edit(lang.getResponse(interaction.guildLocale, "tickettheme_create_created", ticketTheme.id, interaction.options.getString("channelname", true), interaction.options.getString("selectorname") || lang.getResponse(interaction.guildLocale, "tickettheme_noselectorname"), interaction.options.getString("selectoremote") || "⚫"));
 					}
 				} else {
-					await res.edit("`⚠️ Podał*ś nieprawidłowy adres URL.`");
+					await res.edit(lang.getResponse(interaction.guildLocale, "tickettheme_create_malformedurl"));
 				}
 			} catch (err) {
-				await res.edit(
-					"`⚠️ Wystąpił błąd podczas przetwarzania. Upewnij się że podał*ś prawidłowy adres URL.`",
-				);
+				await res.edit(lang.getResponse(interaction.guildLocale, "tickettheme_create_errorwhileprocessing"));
 			}
 		}
 		return true;
