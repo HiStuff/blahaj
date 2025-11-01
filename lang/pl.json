@@ -82,6 +82,42 @@
 			"name": "selektor",
 			"description": "Menu typu \"selektor\"."
 		},
+		"tickettheme": {
+			"name": "motywyticketow",
+			"description": "Zarządzaj motywami ticketów."
+		},
+		"tickettheme_create": {
+			"name": "stworz",
+			"description": "Stwórz nowy motyw ticketów."
+		},
+		"tickettheme_create_channelname": {
+			"name": "nazwakanalu",
+			"description": "Nazwa kanału. (np. ticket-pomoc)"
+		},
+		"tickettheme_create_url": {
+			"name": "url",
+			"description": "URL z paska adresowego. (z discohook.app)"
+		},
+		"tickettheme_create_selectorname": {
+			"name": "nazwawyboru",
+			"description": "Nazwa wyboru. (np. Pomoc)"
+		},
+		"tickettheme_create_selectoremote": {
+			"name": "emotkawyboru",
+			"description": "Emotka wyboru. (np. 😶)"
+		},
+		"tickettheme_delete": {
+			"name": "usun",
+			"description": "Usuń motyw ticketów."
+		},
+		"tickettheme_delete_themeid": {
+			"name": "idmotywu",
+			"description": "ID motywu."
+		},
+		"tickettheme_list": {
+			"name": "lista",
+			"description": "Lista motywów ticketów."
+		},
 		"chatbot": {
 			"name": "chatbot",
 			"description": "Duży model językowy."
@@ -122,6 +158,21 @@
 
 		"ticketmenu_sent": "`✅ Wysłano.`",
 		"ticketmenu_cant_send": "`❌ Nie można wysyłać wiadomości na tym kanale. Menu ticketa nie zostało wysłane.`",
+
+		"tickettheme_create_processing": "`⌛ Przetwarzanie...`",
+		"tickettheme_create_created": "`✅ Stworzono motyw ticketa z ID {0}, nazwą kanału #{1} i wyborem {2} - {3}.`",
+		"tickettheme_create_malformedurl": "`⚠️ URL który podałeś jest nieprawidłowy.`",
+		"tickettheme_create_errorwhileprocessing": "`⚠️ Nastąpił problem podczas przetwarzania. Upewnij się, że adres URL który podałeś jest prawidłowy.`",
+
+		"tickettheme_delete_deleting": "`⌛ Usuwanie...`",
+		"tickettheme_delete_deleted": "`✅ Usunięto motyw {0}.`",
+		"tickettheme_delete_notheme": "`❌ Motyw {0} nie istnieje.",
+		
+		"tickettheme_list_selector": "Wybór: `{0}`",
+		"tickettheme_list_channelname": "Nazwa kanału: `#{0}`",
+		"tickettheme_list_nothemes": "Brak",
+
+		"tickettheme_noselectorname": "BRAK",
 
 		"chatbot_failed_to_connect": "Nie udało połączyć się z serwerem LLM.",
 		"chatbot_answer_too_long": "Odpowiedź jest zbyt długa."

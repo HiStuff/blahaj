@@ -104,7 +104,7 @@
 		},
 		"tickettheme_create_selectoremote": {
 			"name": "selectoremote",
-			"description": "Name in selector. (ex. 😶)"
+			"description": "Emote in selector. (ex. 😶)"
 		},
 		"tickettheme_delete": {
 			"name": "delete",
