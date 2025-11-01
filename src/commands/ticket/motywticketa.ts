@@ -7,54 +7,72 @@ import {
 } from "discord.js";
 import { createErrorEmbed, Error } from "../../utils/error.js";
 import { CommandCategories } from "../../types.js";
-import { database } from "../../fembot.js";
+import { database, lang } from "../../fembot.js";
 
 export default {
 	data: new SlashCommandBuilder()
-		.setName("motywticketa")
-		.setDescription("Zarządzaj motywami ticketa.")
+		.setName("tickettheme")
+		.setNameLocalizations(lang.getNameLocalizations("tickettheme"))
+		.setDescription("Manage ticket themes.")
+		.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme"))
 		.addSubcommand((input) =>
 			input
-				.setName("stworz")
-				.setDescription("Stwórz motyw ticketa.")
+				.setName("create")
+				.setNameLocalizations(lang.getNameLocalizations("tickettheme_create"))
+				.setDescription("Create a new ticket theme.")
+				.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_create"))
 				.addStringOption((input) =>
 					input
-						.setName("nazwakanalu")
-						.setDescription("Nazwa kanału. (np. ticket-pomoc)")
+						.setName("channelname")
+						.setNameLocalizations(lang.getNameLocalizations("tickettheme_create_channelname"))
+						.setDescription("Channel name. (ex. ticket-help)")
+						.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_create_channelname"))
 						.setRequired(true),
 				)
 				.addStringOption((input) =>
 					input
 						.setName("url")
-						.setDescription("Pasek URL. (z discohooka)")
+						.setNameLocalizations(lang.getNameLocalizations("tickettheme_create_url"))
+						.setDescription("URL address bar. (from discohook.app)")
+						.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_create_url"))
 						.setRequired(true),
 				)
 				.addStringOption((input) =>
 					input
-						.setName("nazwawyboru")
-						.setDescription("Nazwa w wyborze. (np. Pomoc)"),
+						.setName("selectorname")
+						.setNameLocalizations(lang.getNameLocalizations("tickettheme_create_selectorname"))
+						.setDescription("Name in selector. (ex. Help)")
+						.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_create_selectorname")),
 				)
 				.addStringOption((input) =>
 					input
-						.setName("emotkawyboru")
-						.setDescription("Emotka w wyborze. (np. 😶)"),
+						.setName("selectoremote")
+						.setNameLocalizations(lang.getNameLocalizations("tickettheme_create_selectoremote"))
+						.setDescription("Name in selector. (ex. 😶)")
+						.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_create_selectoremote")),
 				),
 		)
 		.addSubcommand((input) =>
 			input
-				.setName("usun")
-				.setDescription("Usuń motyw ticketa.")
+				.setName("delete")
+				.setNameLocalizations(lang.getNameLocalizations("tickettheme_delete"))
+				.setDescription("Delete a ticket theme.")
+				.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_delete"))
 				.addStringOption((input) =>
 					input
-						.setName("idmotywu")
-						.setDescription("ID motywu.")
+						.setName("themeid")
+						.setNameLocalizations(lang.getNameLocalizations("tickettheme_delete_themeid"))
+						.setDescription("Theme ID.")
+						.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_delete_themeid"))
 						.setRequired(true),
 				),
 		)
 		.addSubcommand((input) =>
 			input
-				.setName("lista")
-				.setDescription("Wylistuj wszystkie motywy ticketów"),
+				.setName("list")
+				.setNameLocalizations(lang.getNameLocalizations("tickettheme_list"))
+				.setDescription("List all ticket themes.")
+				.setDescriptionLocalizations(lang.getDescriptionLocalizations("tickettheme_list")),
 		)
 		.setContexts(InteractionContextType.Guild)
 		.setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),

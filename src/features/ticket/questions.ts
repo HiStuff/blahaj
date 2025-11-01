@@ -70,7 +70,7 @@ export class Questions {
 				},
 			});
 			let answers: Answer[] = [];
-			if (answers.length < 1) return false;
+			if (result.fields.fields.size < 1) return false;
 			result.fields.fields.forEach((field) => {
 				answers.push({
 					name:

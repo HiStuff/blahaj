@@ -82,6 +82,42 @@
 			"name": "selector",
 			"description": "Selector menu."
 		},
+		"tickettheme": {
+			"name": "tickettheme",
+			"description": "Manage ticket themes."
+		},
+		"tickettheme_create": {
+			"name": "create",
+			"description": "Create a new ticket theme."
+		},
+		"tickettheme_create_channelname": {
+			"name": "channelname",
+			"description": "Channel name. (ex. ticket-help)"
+		},
+		"tickettheme_create_url": {
+			"name": "url",
+			"description": "URL address bar. (from discohook.app)"
+		},
+		"tickettheme_create_selectorname": {
+			"name": "selectorname",
+			"description": "Name in selector. (ex. Help)"
+		},
+		"tickettheme_create_selectoremote": {
+			"name": "selectoremote",
+			"description": "Name in selector. (ex. 😶)"
+		},
+		"tickettheme_delete": {
+			"name": "delete",
+			"description": "Delete a ticket theme."
+		},
+		"tickettheme_delete_themeid": {
+			"name": "themeid",
+			"description": "Theme ID."
+		},
+		"tickettheme_list": {
+			"name": "list",
+			"description": "List all ticket themes."
+		},
 		"chatbot": {
 			"name": "chatbot",
 			"description": "Large language model. Yuh-"
