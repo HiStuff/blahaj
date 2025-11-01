@@ -18,7 +18,7 @@ generator client {
 // }
 
 model TicketQuestion {
-  id        String @id @default(uuid())
+  id        Int @id @default(autoincrement())
   themeId   String
   question  String
   style     Int

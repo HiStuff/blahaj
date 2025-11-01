@@ -52,7 +52,7 @@ export class Questions {
 		questions.forEach((question) => {
 			const modalInput = new TextInputBuilder()
 				.setLabel(question.question)
-				.setCustomId(question.id)
+				.setCustomId(question.id.toString())
 				.setStyle(question.style);
 			modal.addComponents(
 				new ActionRowBuilder<TextInputBuilder>().addComponents(
@@ -70,11 +70,12 @@ export class Questions {
 				},
 			});
 			let answers: Answer[] = [];
+			if (answers.length < 1) return false;
 			result.fields.fields.forEach((field) => {
 				answers.push({
 					name:
 						questions.find(
-							(question) => question.id === field.customId,
+							(question) => question.id.toString() === field.customId,
 						)?.question || "* BRAK NAZWY *",
 					answer: field.value,
 				});

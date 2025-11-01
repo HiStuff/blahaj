@@ -18,7 +18,7 @@ import { timeToString } from "../../utils/time.js";
 export default {
 	data: new SlashCommandBuilder()
 		.setName("info")
-		.setDescription("Wysyła informacje o bocie!"),
+		.setDescription(`Sends information about ${client.version.name}!`),
 	category: CommandCategories.Info,
 	flags: [],
 	async execute(interaction: ChatInputCommandInteraction) {

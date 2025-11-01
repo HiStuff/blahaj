@@ -4,12 +4,9 @@ import {
 	CacheType,
 	ChatInputCommandInteraction,
 	CommandInteraction,
-	EmbedBuilder,
-	Interaction,
 	ModalBuilder,
 	ModalSubmitInteraction,
 	TextInputBuilder,
-	TextInputStyle,
 } from "discord.js";
 import { createErrorEmbed, Error } from "./error.js";
 

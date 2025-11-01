@@ -2,6 +2,8 @@ import fs from "fs";
 import readline from "readline";
 import path from "path";
 import cp from "child_process";
+import yazl from "yazl";
+import { randomUUID } from "crypto";
 
 const rl = readline.createInterface({
 	input: process.stdin,
@@ -66,6 +68,18 @@ async function question(key) {
 	});
 }
 
+function getListOfFilesInDirectory(dirPath) {
+	let list = [];
+	fs.readdirSync(dirPath, { withFileTypes: true }).forEach((piece) => {
+		if (piece.isFile()) {
+			list.push(path.join(piece.parentPath, piece.name));
+		} else {
+			list = list.concat(getListOfFilesInDirectory(path.join(piece.parentPath, piece.name)));
+		}
+	});
+	return list;
+}
+
 async function run() {
 	for (const option of Object.keys(buildOptions)) {
 		await question(option);
@@ -123,7 +137,14 @@ async function run() {
 	fs.writeFileSync(buildInfoPath, JSON.stringify(buildInfoContent));
 
 	console.log(`Build successful in ${buildEnd - buildStart}ms.`);
-	process.exit();
+
+	console.log("Compressing into update.zip...");
+	const updateZip = new yazl.ZipFile();
+	getListOfFilesInDirectory(buildFolderPath).forEach(file => {
+		updateZip.addFile(file, path.relative(buildFolderPath, file));
+	});
+	updateZip.end();
+	updateZip.outputStream.pipe(fs.createWriteStream(path.join(buildFolderPath, `update.zip`)).on("close", function() { console.log("Compressed into update.zip."); process.exit(); }));
 }
 
 run();

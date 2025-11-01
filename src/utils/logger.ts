@@ -9,11 +9,11 @@ export function info(text: any) {
 }
 
 export function warn(text: any) {
-	console.log(`${getTime()} ⚠️  ${text}`);
+	console.warn(`${getTime()} ⚠️  ${text}`);
 }
 
 export function error(text: any) {
-	console.log(`${getTime()} ❌ ${text}`);
+	console.error(`${getTime()} ❌ ${text}`);
 }
 
 export function success(text: any) {

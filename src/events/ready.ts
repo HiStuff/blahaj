@@ -12,10 +12,10 @@ export default {
 		process.stdout.write("\x1Bc");
 		console.log();
 		console.log(`   ${client.version.name}`);
-		console.log(`   Gotowy jako @${readyClient.user.tag}`);
-		console.log(`   🤖 Komendy: ${client.commands.size}`);
-		console.log(`   🎉 Eventy: ${eventsCounter}`);
-		console.log(`   🔴 Przyciski: ${client.buttons.size}`);
+		console.log(`   Ready as @${readyClient.user.tag}`);
+		console.log(`   🤖 Commands: ${client.commands.size}`);
+		console.log(`   🎉 Events: ${eventsCounter}`);
+		console.log(`   🔴 Buttons: ${client.buttons.size}`);
 		console.log();
 		deployGuild(config.guildId);
 		listen();

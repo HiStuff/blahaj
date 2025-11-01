@@ -176,7 +176,7 @@ export class Ticket {
 		let themeJson = await JSON.parse(this.theme.ticketIntro);
 		themeJson.content = `<@${this.author.id}>\n${themeJson.content || ""}`;
 
-		if (answers) {
+		if (answers && answers.length > 0) {
 			let answersEmbedFields: EmbedField[] = [];
 
 			answers.forEach((answer) => {
@@ -190,8 +190,6 @@ export class Ticket {
 			const answersEmbed = new EmbedBuilder()
 				.setTitle("Q/A")
 				.addFields(answersEmbedFields);
-
-			console.log(themeJson);
 
 			if ("embeds" in themeJson) {
 				themeJson.embeds.push(answersEmbed.toJSON());
