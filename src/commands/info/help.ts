@@ -5,13 +5,15 @@ import {
 	SlashCommandBuilder,
 } from "discord.js";
 import config from "../../../config.json" with { type: "json" };
-import { client } from "../../fembot.js";
+import { client, lang } from "../../fembot.js";
 import { CommandCategories } from "../../types.js";
 
 export default {
 	data: new SlashCommandBuilder()
-		.setName("pomoc")
-		.setDescription("Pomocy!!!"),
+		.setName("help")
+		.setNameLocalizations(lang.getNameLocalizations("help"))
+		.setDescription("Help!!!")
+		.setDescriptionLocalizations(lang.getDescriptionLocalizations("help")),
 	category: CommandCategories.Info,
 	flags: [],
 	async execute(interaction: ChatInputCommandInteraction) {
@@ -25,13 +27,17 @@ export default {
 			description += `**${category}**\`\`\``;
 			commands.forEach(
 				(command) =>
-					(description += `\n/${command.data.name}\n- ${command.data.description}\n`),
+					(description += `\n/${
+						lang.getNameLocalizations(command.data.name)[interaction.guildLocale || "en-US"] || command.data.name
+					}\n- ${
+						lang.getDescriptionLocalizations(command.data.name)[interaction.guildLocale || "en-US"] || command.data.description
+					}\n`),
 			);
-			if (commands.size <= 0) description += "Ta kategoria jest pusta.";
+			if (commands.size <= 0) description += lang.getResponse(interaction.guildLocale, "help_category_is_empty");
 			description += "```\n";
 		});
 		const embed = new EmbedBuilder()
-			.setTitle("Pomoc")
+			.setTitle(lang.getResponse(interaction.guildLocale, "help_embed_title"))
 			.setDescription(description)
 			.setColor(0x00bbff)
 			.setTimestamp(new Date());

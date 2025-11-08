@@ -70,7 +70,6 @@ export class Questions {
 				},
 			});
 			let answers: Answer[] = [];
-			if (result.fields.fields.size < 1) return false;
 			result.fields.fields.forEach((field) => {
 				answers.push({
 					name:
@@ -84,7 +83,7 @@ export class Questions {
 			this.answers = answers;
 			return true;
 		} catch (err) {
-			return false;
+			throw err;
 		}
 	}
 }

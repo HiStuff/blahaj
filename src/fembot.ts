@@ -129,6 +129,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
 		}
 	} catch (err) {
 		log.error(err);
+		if (interaction.isRepliable()) {
+			await interaction.reply({ content: lang.getResponse(interaction.locale, "generic_interaction_error"), flags: MessageFlags.Ephemeral });
+		}
 	}
 });
 

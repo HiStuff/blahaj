@@ -129,9 +129,16 @@
 		"chatbot_chat_message": {
 			"name": "message",
 			"description": "Message you want to send to the chatbot."
+		},
+		"help": {
+			"name": "help",
+			"description": "Help!!!"
 		}
 	},
 	"responses": {
+
+		"generic_interaction_error": "There was an error while handling this interaction, please try again.",
+
 		"ping_response": {
 			"title": "Latency",
 			"description": "🏓 Latency is `~{0}ms`"
@@ -175,7 +182,10 @@
 		"tickettheme_noselectorname": "NONE",
 
 		"chatbot_failed_to_connect": "Failed to connect with the LLM server.",
-		"chatbot_answer_too_long": "Answer too long."
+		"chatbot_answer_too_long": "Answer too long.",
+
+		"help_category_is_empty": "Category is empty.",
+		"help_embed_title": "Help"
 	},
 	"other": {
 		"open_ticket_embed_title": "Open ticket.",

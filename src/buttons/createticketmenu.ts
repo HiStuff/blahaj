@@ -85,7 +85,7 @@ export default {
 			);
 			await ticket.init(interaction.guild.id);
 			const questions = new Questions(i, i.values[0]);
-			await questions.ask();
+			if (!await questions.ask()) return false;
 			try {
 				await ticket.createTicket(client, questions.answers);
 			} catch (err) {

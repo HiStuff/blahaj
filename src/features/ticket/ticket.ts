@@ -98,7 +98,7 @@ export async function handleCustomMenuButtonClick(
 		return;
 	}
 	const questions = new Questions(interaction, theme);
-	await questions.ask();
+	if (!await questions.ask()) return false;
 	await ticket.createTicket(client, questions.answers);
 	if (ticket.channel) {
 		await interaction.followUp({

@@ -129,9 +129,15 @@
 		"chatbot_chat_message": {
 			"name": "message",
 			"description": "Wiadomość którą chcesz wysłać do chatbota."
+		},
+		"help": {
+			"name": "pomoc",
+			"description": "Pomocy!!!"
 		}
 	},
 	"responses": {
+		"generic_interaction_error": "Wystąpił błąd podczas przetwarzania tej interakcji, prosimy spróbować ponownie.",
+
 		"ping_response": {
 			"title": "Opóźnienie",
 			"description": "🏓 Opóźnienie wynosi `~{0}ms`"
@@ -175,7 +181,10 @@
 		"tickettheme_noselectorname": "BRAK",
 
 		"chatbot_failed_to_connect": "Nie udało połączyć się z serwerem LLM.",
-		"chatbot_answer_too_long": "Odpowiedź jest zbyt długa."
+		"chatbot_answer_too_long": "Odpowiedź jest zbyt długa.",
+
+		"help_category_is_empty": "Kategoria jest pusta.",
+		"help_embed_title": "Pomoc"
 	},
 	"other": {
 		"open_ticket_embed_title": "Otwórz ticketa.",

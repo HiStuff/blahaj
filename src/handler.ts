@@ -161,7 +161,7 @@ export async function handleChatInputCommandInteraction(
 			});
 		return;
 	} catch (error) {
-		console.error(error);
+		log.error(error);
 		if (interaction.replied || interaction.deferred) {
 			await interaction.followUp({
 				content: "There was an error while executing this command!",

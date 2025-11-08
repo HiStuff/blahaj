@@ -11,14 +11,6 @@ export default {
 		) {
 			const member = message.mentions.members?.first();
 			if (member) {
-				if (member.roles.cache.has("1395924643038367744")) {
-					await member.roles.remove("1395924643038367744");
-				} else {
-					await message.reply(
-						"Użytkownik nie miał roli weryfikacja słodziaka. Trochę dziwne co nie?",
-					);
-				}
-				await member.roles.add("1375814858217357395");
 				if (message.channel.isSendable()) {
 					await message.channel.send(`
 ════════════════════════════
