@@ -1,5 +1,6 @@
 export const __dirname = import.meta.dirname;
 
+import "dotenv/config";
 import {
 	ActionRowBuilder,
 	CategoryChannelResolvable,
@@ -62,6 +63,7 @@ export const client = new FembotClient(getVersion(), lang, {
 		GatewayIntentBits.GuildMessageReactions,
 	],
 });
+
 export const database = new PrismaClient();
 export const chatbot = new Chatbot(
 	new OpenAI({

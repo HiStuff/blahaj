@@ -18,6 +18,6 @@ export default {
 		console.log(`   🔴 Buttons: ${client.buttons.size}`);
 		console.log();
 		deployGuild(config.guildId);
-		listen();
+		//listen();
 	},
 };
