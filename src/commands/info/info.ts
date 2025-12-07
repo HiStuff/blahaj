@@ -25,7 +25,7 @@ export default {
 		await interaction.deferReply();
 		const labelEmbed = new EmbedBuilder()
 			.setTitle(
-				`${client.version.name} (${client.version.codename}) ${client.version.developmental ? "(dev)" : ""}`,
+				`${client.version.name} ${client.version.version} (${client.version.codename}) ${client.version.developmental ? "(dev)" : ""}`,
 			)
 			.setColor(0x96efff)
 			.setDescription(packagejson.description);

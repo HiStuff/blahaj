@@ -14,6 +14,7 @@ import { LanguageManager } from "./utils/languageManager.js";
 
 export interface IVersion {
 	name: string;
+	version: string;
 	codename: string;
 	build_date: Date | null;
 	color: string;

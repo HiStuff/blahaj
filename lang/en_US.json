@@ -133,6 +133,22 @@
 		"help": {
 			"name": "help",
 			"description": "Help!!!"
+		},
+		"llm": {
+			"name": "llm",
+			"description": "Large Language Model (AI) Features."
+		},
+		"llm_chat": {
+			"name": "chat",
+			"description": "Chat with the chatbot."
+		},
+		"llm_chat_prompt": {
+			"name": "prompt",
+			"description": "Prompt to generate an answer to."
+		},
+		"llm_clearhistory": {
+			"name": "clearhistory",
+			"description": "Clear the chatbot history."
 		}
 	},
 	"responses": {
@@ -158,7 +174,7 @@
 		"info_uptime": "This instance's uptime",
 		"info_build_date": "This build was built on:",
 		"info_footer": "Psst... Execute /help. :3",
-		"info_not_deployed": "N/A (Not deployed)",
+		"info_not_deployed": "N/A (Not built)",
 
 		"ticket_setcategory_set": "`✅ Set category to {0}.`",
 		"ticket_help": "# How to setup tickets?\n- Set the category using /ticket setcategory\n- Create theme using /tickettheme create\n- Spawn ticket's menu using /ticketmenu normal/custom",
@@ -185,7 +201,12 @@
 		"chatbot_answer_too_long": "Answer too long.",
 
 		"help_category_is_empty": "Category is empty.",
-		"help_embed_title": "Help"
+		"help_embed_title": "Help",
+
+		"llm_clearhistory_cleared": {
+			"title": "Cleared.",
+			"description": "Your history got cleared."
+		}
 	},
 	"other": {
 		"open_ticket_embed_title": "Open ticket.",

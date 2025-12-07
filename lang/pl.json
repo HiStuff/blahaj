@@ -157,7 +157,7 @@
 		"info_uptime": "Czas działania tej instancji",
 		"info_build_date": "Ten build został zbudowany dnia:",
 		"info_footer": "Psst... Wykonaj /pomoc. :3",
-		"info_not_deployed": "nd. (Deweloperska instancja)",
+		"info_not_deployed": "nd. (Nie zbudowany)",
 
 		"ticket_setcategory_set": "`✅ Ustawiono kategorię na {0}.`",
 		"ticket_help": "# Jak ustawić tickety?\n- Ustaw kategorię komendą /ticket ustawkategorie\n- Stwórz motyw komendą /motywticketa stworz\n- Zresp menu ticketa komendą /menuticketow selektor/niestandardowe",

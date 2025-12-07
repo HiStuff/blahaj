@@ -10,14 +10,19 @@ export default class Chatbot {
 	history: History;
 	addToHistory(sessionId: string, ...messages: ChatCompletionMessageParam[]) {
 		if (!this.history[sessionId]) this.history[sessionId] = [];
-		this.history[sessionId].concat(messages);
+		this.history[sessionId] = this.history[sessionId].concat(messages);
 	}
-	async answer(sessionId: string, question: string) {
+	getHistory(sessionId: string) {
+	return this.history[sessionId];	
+	}
+	clearHistory(sessionId: string) {
+		this.history[sessionId] = [];
+	}
+	async answer(sessionId: string, systemPrompt: string, question: string) {
 		let messages = this.history[sessionId] || [];
-		messages.push({ role: "user", content: question });
 		const completion = await this.llmClient.chat.completions.create({
-			model: "deepseek-r1-distill-llama-8b-q4_k_m",
-			messages: messages,
+			model: (await this.llmClient.models.list()).data[0].id,
+			messages: messages.concat(messages, { role: "user", content: question }, { role: "system", content: systemPrompt }),
 		});
 		const assistantReply: ChatCompletionMessageParam = {
 			role: "assistant",
