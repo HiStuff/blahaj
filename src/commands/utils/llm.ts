@@ -1,11 +1,17 @@
 import {
 	ChatInputCommandInteraction,
+	DefaultWebSocketManagerOptions,
 	EmbedBuilder,
 	SlashCommandBuilder,
 } from "discord.js";
 import { createErrorEmbed, Error } from "../../utils/error.js";
-import { CommandCategories } from "../../types.js";
-import { chatbot, client } from "../../fembot.js";
+import { CommandCategories, ICommand } from "../../types.js";
+import { chatbot, client, lang } from "../../fembot.js";
+import { User } from "../../../prisma/client/default.js";
+
+function getSystemPrompt(dbUser: User, systemPrompt: string | null) {
+	if (dbUser.customSystemPromptAllowed && systemPrompt) { return systemPrompt; } else return "You are a calm and caring assistant."
+}
 
 export default {
 	data: new SlashCommandBuilder()
@@ -25,6 +31,13 @@ export default {
 				.setNameLocalizations(client.lang.getNameLocalizations("llm_chat_prompt"))
 				.setDescription("User prompt.")
 				.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("llm_chat_prompt"))
+				.setRequired(true)
+			)
+			.addStringOption(input => input
+				.setName("systemprompt")
+				.setNameLocalizations(client.lang.getNameLocalizations("llm_chat_systemprompt"))
+				.setDescription("System prompt for the chatbot.")
+				.setDescriptionLocalizations(client.lang.getDescriptionLocalizations("llm_chat_systemprompt"))
 			)
         )
 		.addSubcommand(input => input
@@ -35,34 +48,26 @@ export default {
         ),
 	category: CommandCategories.Utilities,
 	flags: [],
-	async execute(interaction: ChatInputCommandInteraction) {
+	async execute(interaction: ChatInputCommandInteraction, dbUser: User) {
 		await interaction.deferReply();
 		switch (interaction.options.getSubcommand()) {
 			case "chat": {
-				try {
-					await fetch(chatbot.llmClient.baseURL);
-				} catch (err) {
-					await interaction.followUp(
-						client.lang.getResponse(
-							interaction.guildLocale,
-							"chatbot_failed_to_connect",
-						),
-					);
-					return true;
-				}
 				const startDate = new Date();
 				if (interaction.channel?.isSendable()) {
 					await interaction.channel.sendTyping();
 				}
 				const completion = await chatbot.answer(
 					interaction.user.id,
-					"You are a helpful assistant.",
+					getSystemPrompt(dbUser, interaction.options.getString("systemprompt")),
 					interaction.options.getString("prompt", true),
 				);
 				const completionDate = new Date();
-				const content =
+				let content =
 					(completion.choices[0].message.content || "") +
 					`\n-# AI | ${completion.usage?.total_tokens} token(s) | ${(completionDate.getTime() - startDate.getTime()) / 1000}s`;
+				if (!dbUser.customSystemPromptAllowed && interaction.options.getString("systemprompt")) {
+					content += `\n${client.lang.getResponse(interaction.locale, "chatbot_systemprompt_exclusive")}`;
+				}
 				if (content.length > 2000) {
 					await interaction.followUp(
 						client.lang.getResponse(

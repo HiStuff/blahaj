@@ -133,6 +133,26 @@
 		"help": {
 			"name": "pomoc",
 			"description": "Pomocy!!!"
+		},
+		"llm": {
+			"name": "llm",
+			"description": "Duży model językowy. (Funkcjonalność AI)"
+		},
+		"llm_chat": {
+			"name": "czatuj",
+			"description": "Czatuj z czatbotem."
+		},
+		"llm_chat_prompt": {
+			"name": "prompt",
+			"description": "Prompt na który mam wygenerować odpowiedź."
+		},
+		"llm_clearhistory": {
+			"name": "clearhistory",
+			"description": "Wyczyść historię konwersacji."
+		},
+		"llm_chat_systemprompt": {
+			"name": "systemprompt",
+			"description": "Prompt systemowy dla czatbota."
 		}
 	},
 	"responses": {
@@ -182,9 +202,15 @@
 
 		"chatbot_failed_to_connect": "Nie udało połączyć się z serwerem LLM.",
 		"chatbot_answer_too_long": "Odpowiedź jest zbyt długa.",
+		"chatbot_systemprompt_exclusive": "-# ⚠️ Próbowałeś użyć własnego system prompta, ale ta funkcjonalność jest tylko dla wybranych osób. Zaaplikuj (jeżeli chcesz do niej dostęp) na naszym serwerze (/info).",
 
 		"help_category_is_empty": "Kategoria jest pusta.",
-		"help_embed_title": "Pomoc"
+		"help_embed_title": "Pomoc",
+
+		"llm_clearhistory_cleared": {
+			"title": "Wyczyszczono",
+			"description": "Twoja historia została wyczyszczona."
+		}
 	},
 	"other": {
 		"open_ticket_embed_title": "Otwórz ticketa.",

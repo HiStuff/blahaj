@@ -1,16 +1,12 @@
 import {
-	Client,
 	ChatInputCommandInteraction,
 	EmbedBuilder,
 	SlashCommandBuilder,
-	ApplicationIntegrationType,
 	InteractionContextType,
 	ColorResolvable,
 	time,
 	TimestampStyles,
 } from "discord.js";
-import config from "../../../config.json" with { type: "json" };
-import { client } from "../../fembot.js";
 import { CommandCategories } from "../../types.js";
 import { getAverageColor } from "fast-average-color-node";
 

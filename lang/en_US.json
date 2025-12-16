@@ -149,6 +149,10 @@
 		"llm_clearhistory": {
 			"name": "clearhistory",
 			"description": "Clear the chatbot history."
+		},
+		"llm_chat_systemprompt": {
+			"name": "systemprompt",
+			"description": "System prompt for the chatbot."
 		}
 	},
 	"responses": {
@@ -199,6 +203,7 @@
 
 		"chatbot_failed_to_connect": "Failed to connect with the LLM server.",
 		"chatbot_answer_too_long": "Answer too long.",
+		"chatbot_systemprompt_exclusive": "-# ⚠️ You tried to put a custom system prompt, but that feature is exclusive to selected users. Please apply in our server (/info).",
 
 		"help_category_is_empty": "Category is empty.",
 		"help_embed_title": "Help",

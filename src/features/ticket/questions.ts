@@ -63,7 +63,7 @@ export class Questions {
 		await this.interaction.showModal(modal);
 		try {
 			const result = await this.interaction.awaitModalSubmit({
-				time: 60_000,
+				time: 300_000,
 				filter: (i) => {
 					i.deferUpdate();
 					return i.user.id == this.interaction.user.id;

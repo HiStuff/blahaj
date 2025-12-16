@@ -70,6 +70,10 @@ export const chatbot = new Chatbot(
 		apiKey: process.env.LLM_API_KEY,
 		baseURL: config.llm_api_host,
 	}),
+	new OpenAI({
+		apiKey: process.env.LLM_FALLBACK_API_KEY,
+		baseURL: config.llm_fallback_api_host,
+	}),
 	{},
 );
 

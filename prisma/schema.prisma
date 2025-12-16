@@ -36,10 +36,11 @@ model TicketTheme {
 }
 
 model User {
-  id          String  @id
-  balance     Int     @default(50)
-  developer   Boolean @default(false)
-  blacklisted Boolean @default(false)
+  id                        String  @id
+  balance                   Int     @default(50)
+  developer                 Boolean @default(false)
+  blacklisted               Boolean @default(false)
+  customSystemPromptAllowed Boolean @default(false)
 }
 
 model Warn {
